@@ -1,2 +1,2 @@
 # sENSITIVE-cASE
-Coded in python, different options for automatically changin the case of your text
+Coded in python, different options for automatically changing the case of your text

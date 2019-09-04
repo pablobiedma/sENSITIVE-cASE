@@ -1,12 +1,13 @@
 import tkinter as tk
 from tkinter import simpledialog, ttk
+import tkinter.messagebox
 
 root = tk.Tk()
 root.withdraw()
 text = simpledialog.askstring(title="Text",
                               prompt="Insert Text")
 app = tk.Tk()
-#choice = ""
+# choice = ""
 
 app.title("sENSITIVE-cASE")
 labelTop = ttk.Label(app,
@@ -16,7 +17,48 @@ labelTop.grid(column=0, row=0)
 
 # Button Action
 def click():
-    action.configure(text="chosen action is : " + choices.get())
+    if choices.get() == "swap case":
+        result = str.swapcase(text)
+        print(result)
+        tkinter.messagebox.showinfo("Results", result + " Copy from terminal")
+        # root2 = tk.Tk()
+        # root2.withdraw()
+        # T = tk.Text(root, height=2, width=30)
+        # T.pack()
+        # T.insert(tk.END, result)
+        # tk.mainloop()
+    elif choices.get() == "all lowercase":
+        result = text.lower()
+        print(result)
+        tkinter.messagebox.showinfo("Results", result + " Copy from terminal")
+        # print(result)
+        # root2 = tk.Tk()
+        # root2.withdraw()
+        # T = tk.Text(root, height=2, width=30)
+        # T.pack()
+        # T.insert(tk.END, result)
+        # tk.mainloop()
+    elif choices.get() == "all uppercase":
+        result = text.upper()
+        print(result)
+        tkinter.messagebox.showinfo("Results", result +" \n(open from terminal if you want to copy it)")
+        # print(result)
+        # root2 = tk.Tk()
+        # root2.withdraw()
+        # T = tk.Text(root, height=2, width=30)
+        # T.pack()
+        # T.insert(tk.END, result)
+        # tk.mainloop()
+    else:
+        # root2 = tk.Tk()
+        # root2.withdraw()
+        # T = tk.Text(root, height=2, width=30)
+        # T.pack()
+        # T.insert(tk.END, "Error, please enter a valid action.")
+        # tk.mainloop()
+        result = "Error, please enter a valid action."
+
+    action.configure(text=result)
 
 
 # button Creation
@@ -31,54 +73,3 @@ choices.grid(column=0, row=1)
 choices.current()
 # Calling Main()
 app.mainloop()
-print(choices)
-print(choices.get())
-
-
-# change(text)
-# def change(text, choice):
-
-# def check_cbox():
-#    global choice
-#   if choices.get() == 'swap case':
-#        choice = choices.get()
-#    if choices == "all lowercase":
-#        choice = choices.get()
-#    if choices.get() == "all uppercase":
-#       choice = choices.get()
-
-
-def sENSITIVE_cASE(text):
-    print(choices.get())
-    if choices.get() == "swap case":
-        result = str.swapcase(text)
-        root2 = tk.Tk()
-        root2.withdraw()
-        T = tk.Text(root, height=2, width=30)
-        T.pack()
-        T.insert(tk.END, result)
-        tk.mainloop()
-
-    elif choices.get() == "all lowercase":
-        result = text.lower()
-        root2 = tk.Tk()
-        root2.withdraw()
-        T = tk.Text(root, height=2, width=30)
-        T.pack()
-        T.insert(tk.END, result)
-        tk.mainloop()
-    elif choices.get() == "all uppercase":
-        result = text.upper()
-        root2 = tk.Tk()
-        root2.withdraw()
-        T = tk.Text(root, height=2, width=30)
-        T.pack()
-        T.insert(tk.END, result)
-        tk.mainloop()
-    else:
-        root2 = tk.Tk()
-        root2.withdraw()
-        T = tk.Text(root, height=2, width=30)
-        T.pack()
-        T.insert(tk.END, "Error, please enter a valid action.")
-        tk.mainloop()
